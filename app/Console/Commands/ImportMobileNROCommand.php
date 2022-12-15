@@ -28,8 +28,8 @@ class ImportMobileNROCommand extends Command
      */
     public function handle()
     {
-        $antennes = \Http::get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=sites-2g-3g-4g-france-metropolitaine-mon-reseau-mobile&q=&facet=code_op&facet=nom_op&facet=nom_reg&facet=nom_dep&facet=insee_dep&facet=nom_com&facet=insee_com&facet=technologies&refine.technologies=4G')->object();
-        $fields = collect($antennes->fields);
+        $antennes = \Http::get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=buildingref-france-arcep-mobile-site-2g3g4g&q=&rows=10000&facet=op_name&facet=technology&facet=com_code&facet=com_name&facet=epci_name&facet=epci_code&facet=dep_name&facet=dep_code&facet=reg_name&facet=reg_code&refine.ds=ds')->object();
+        $fields = collect($antennes->records);
         $count = $fields->count();
 
         $this->info('Nombre enregistrement: '.$count);
@@ -37,14 +37,14 @@ class ImportMobileNROCommand extends Command
         $bar->start();
 
         foreach ($fields as $liai) {
-            $liaison = collect($liai)->toArray();
+            $liaison = collect($liai->fields)->toArray();
 
             MobileNro::create([
-                'operator' => $liaison['nom_op'],
-                'latitude' => $liaison['coordonnees'][0],
-                'longitude' => $liaison['coordonnees'][1],
-                'commune' => $liaison['nom_com'],
-                'updated_at' => $liaison['record_timestamp']
+                'operator' => $liaison['op_name'],
+                'latitude' => $liaison['geo_point_2d'][0],
+                'longitude' => $liaison['geo_point_2d'][1],
+                'commune' => null,
+                'updated_at' => now()
             ]);
             $bar->advance();
         }

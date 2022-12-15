@@ -32,6 +32,8 @@ class ImportTelecomNROCommand extends Command
         $features = collect($liaisons->features);
         $count = $features->count();
         $this->info('Nombre enregistrement: '.$count);
+        $bar = $this->output->createProgressBar($count);
+        $bar->start();
 
         foreach ($features as $liai) {
             $liaison = collect($liai)->toArray();
@@ -50,8 +52,10 @@ class ImportTelecomNROCommand extends Command
                 'osm_timestamp' => $properties['osm_timestamp'],
                 'status' => 'active'
             ]);
+            $bar->advance();
         }
 
+        $bar->finish();
         return Command::SUCCESS;
     }
 }

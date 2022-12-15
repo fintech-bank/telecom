@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->string('operator');
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('commune');
+            $table->string('commune')->nullable();
             $table->enum('status', ['active', 'inactive', 'broken'])->default('active');
             $table->timestamp('updated_at');
         });
