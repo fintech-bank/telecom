@@ -1,11 +1,15 @@
 :root {
     --color-primary: #003dce;
+    --color-light-primary: #4967b2;
 }
 
 .bg-primary {
-    background-color: #003dce !important;
+    background-color: var(--color-primary) !important;
+}
+.bg-primary a {
+    color: white !important;
 }
 
 .bg-light-primary {
-    background-color: #608efb !important;
+    background-color: var(--color-light-primary) !important;
 }
