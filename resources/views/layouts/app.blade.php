@@ -93,7 +93,7 @@
             <!-- END: INLINE NAV -->
         </div>
     </div>
-    <div class="c-navbar c-bg-info">
+    <div class="c-navbar bg-primary">
         <div class="container">
             <!-- BEGIN: BRAND -->
             <div class="c-navbar-wrapper clearfix">

@@ -3,5 +3,9 @@
 }
 
 .bg-primary {
-    background-color: var(--color-primary);
+    background-color: #003dce !important;
+}
+
+.bg-light-primary {
+    background-color: #608efb !important;
 }
