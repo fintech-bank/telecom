@@ -36,7 +36,7 @@
     <!-- BEGIN THEME STYLES -->
     <link href="/assets/demos/default/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/demos/default/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
-    <link href="/assets/demos/default/css/themes/default.css" rel="stylesheet" id="style_theme" type="text/css"/>
+    <link href="/assets/demos/default/css/themes/blue1.css" rel="stylesheet" id="style_theme" type="text/css"/>
     <link href="/assets/demos/default/css/custom.css" rel="stylesheet" type="text/css"/>
     <!-- END THEME STYLES -->
 
@@ -93,7 +93,7 @@
             <!-- END: INLINE NAV -->
         </div>
     </div>
-    <div class="c-navbar">
+    <div class="c-navbar c-bg-info">
         <div class="container">
             <!-- BEGIN: BRAND -->
             <div class="c-navbar-wrapper clearfix">
